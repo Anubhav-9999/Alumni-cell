@@ -6,10 +6,14 @@ const sectionIds = {
   convener: document.getElementById("convener-card"),
   coConvener: document.getElementById("co-convener-card"),
   studentTeam: document.getElementById("student-team"),
+  purposeHero: document.getElementById("purpose-hero"),
 };
 
 const heroTitle = document.getElementById("hero-title");
 const heroIntro = document.getElementById("hero-intro");
+const heroDate = document.getElementById("hero-date");
+const heroVenue = document.getElementById("hero-venue");
+const aboutIntro = document.getElementById("about-intro");
 const feeEl = document.querySelector("#registration .fee");
 const deadlineEl = document.querySelector("#registration .deadline");
 const googleFormBtn = document.getElementById("google-form");
@@ -40,14 +44,25 @@ function hydratePage({
   convener,
   coConvener,
   studentTeam,
+  tagline,
+  date,
+  venue,
 }) {
   heroTitle.textContent = title;
-  heroIntro.textContent = intro;
+  heroIntro.textContent = tagline;
+  heroDate.textContent = `${date} • ${venue}`;
+  heroVenue.textContent = venue;
+  aboutIntro.textContent = intro;
+
+  sectionIds.purposeHero.innerHTML = purpose
+    .slice(0, 3)
+    .map((point) => `<li>${point}</li>`)
+    .join("");
 
   sectionIds.purpose.innerHTML = purpose
     .map(
       (item) => `
-        <article class="card">
+        <article class="purpose-card">
           <p>${item}</p>
         </article>
       `
@@ -57,7 +72,7 @@ function hydratePage({
   sectionIds.activities.innerHTML = activities
     .map(
       (activity) => `
-        <article class="card">
+        <article class="initiative-card">
           <h3>${activity.title}</h3>
           <p>${activity.description}</p>
         </article>
@@ -109,5 +124,3 @@ function renderLeader(person, title) {
 
 footerYear.textContent = new Date().getFullYear();
 loadEvent();
-
-

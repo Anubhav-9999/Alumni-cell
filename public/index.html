@@ -13,74 +13,105 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="page">
+    <div class="layout">
       <header class="hero" id="hero">
         <nav class="nav">
           <div class="brand">
-            <span class="brand-pill">JUIT</span>
+            <span class="brand-pill">JUIT Alumni Cell</span>
             <p>Alumni Meet 2026</p>
           </div>
           <div class="nav-links">
-            <a href="#purpose">Purpose</a>
-            <a href="#activities">Activities</a>
+            <a href="#about">About</a>
+            <a href="#initiatives">Highlights</a>
             <a href="#gallery">Gallery</a>
-            <a href="#registration">Register</a>
+            <a href="#leaders">Leaders</a>
             <a href="#team">Team</a>
+            <a class="btn primary small" href="#registration">Register</a>
           </div>
         </nav>
-        <div class="hero-content">
-          <p class="eyebrow">24-25 October 2026 • Waknaghat</p>
-          <h1 id="hero-title">Alumni Meet 2026</h1>
-          <p id="hero-intro">
-            Gathering the global JUIT family for two unforgettable days of
-            nostalgia, networking, and new collaborations.
-          </p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#registration">Register Now</a>
-            <a class="btn ghost" href="#activities">Explore the plan</a>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow" id="hero-date">24-25 October 2026 • Waknaghat</p>
+            <h1 id="hero-title">Alumni Meet 2026</h1>
+            <p class="lead" id="hero-intro">
+              Gathering the global JUIT family for two unforgettable days of
+              nostalgia, networking, and new collaborations.
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#registration">Register Now</a>
+              <a class="btn secondary" href="#initiatives">Explore Agenda</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat">
+                <p class="stat-value">2</p>
+                <p class="stat-label">Days of reunions</p>
+              </div>
+              <div class="stat">
+                <p class="stat-value">20+</p>
+                <p class="stat-label">Engagements</p>
+              </div>
+              <div class="stat">
+                <p class="stat-value">500+</p>
+                <p class="stat-label">Expected alumni</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-card">
+            <p class="eyebrow">Venue</p>
+            <h3 id="hero-venue">JUIT Waknaghat Campus</h3>
+            <p>
+              Experience immersive keynotes, innovation expos, and nostalgia
+              nights curated by the JUIT Alumni Cell.
+            </p>
+            <ul class="hero-list" id="purpose-hero"></ul>
           </div>
         </div>
       </header>
 
       <main>
-        <section class="card-grid" id="purpose">
-          <div class="section-heading">
-            <p class="eyebrow">Why gather</p>
-            <h2>Purpose & Vision</h2>
+        <section class="section about" id="about">
+          <div class="section-intro">
+            <p class="eyebrow">Purpose</p>
+            <h2>Why Alumni Meet 2026 matters</h2>
+            <p class="lead" id="about-intro">
+              A vibrant two-day homecoming that brings together JUIT alumni,
+              faculty, and students to celebrate enduring bonds, explore new
+              collaborations, and chart the future of our community.
+            </p>
           </div>
-          <div id="purpose-list" class="grid grid-two"></div>
+          <div class="about-grid" id="purpose-list"></div>
         </section>
 
-        <section class="card-grid" id="activities">
-          <div class="section-heading">
-            <p class="eyebrow">What awaits you</p>
-            <h2>Signature Experiences</h2>
+        <section class="section light" id="initiatives">
+          <div class="section-intro center">
+            <p class="eyebrow">Experiences</p>
+            <h2>Flagship activities & touchpoints</h2>
+            <p class="muted">
+              Carefully curated learning, networking, and celebration moments inspired by
+              the energy of the TIEDC showcase.
+            </p>
           </div>
-          <div id="activities-list" class="grid grid-two"></div>
+          <div class="initiative-grid" id="activities-list"></div>
         </section>
 
-        <section class="gallery-section" id="gallery">
-          <div class="section-heading">
-            <p class="eyebrow">Throwbacks & vibes</p>
-            <h2>Gallery Highlights</h2>
+        <section class="section gallery" id="gallery">
+          <div class="section-intro center">
+            <p class="eyebrow">Gallery</p>
+            <h2>Moments that define us</h2>
           </div>
           <div id="gallery-grid" class="gallery-grid"></div>
         </section>
 
-        <section class="info-panels" id="eligibility">
+        <section class="section two-col" id="eligibility">
           <div class="panel">
-            <div class="section-heading">
-              <p class="eyebrow">Who can attend</p>
-              <h2>Eligibility</h2>
-            </div>
+            <p class="eyebrow">Eligibility</p>
+            <h2>Who can participate</h2>
             <ul id="eligibility-list"></ul>
           </div>
-          <div class="panel" id="registration">
-            <div class="section-heading">
-              <p class="eyebrow">Save your spot</p>
-              <h2>Registration</h2>
-            </div>
-            <div class="fee"></div>
+          <div class="panel accent" id="registration">
+            <p class="eyebrow">Registration</p>
+            <h2>Secure your badge</h2>
+            <p class="fee"></p>
             <p class="deadline"></p>
             <div class="cta-links">
               <a class="btn primary" target="_blank" rel="noreferrer" id="google-form"
@@ -93,10 +124,10 @@
           </div>
         </section>
 
-        <section class="leaders" id="leadership">
-          <div class="section-heading">
-            <p class="eyebrow">Leadership desk</p>
-            <h2>Convener & Co-Convener</h2>
+        <section class="section leaders" id="leaders">
+          <div class="section-intro center">
+            <p class="eyebrow">Leadership</p>
+            <h2>Convener desk</h2>
           </div>
           <div class="leader-grid">
             <article class="leader-card" id="convener-card"></article>
@@ -104,18 +135,30 @@
           </div>
         </section>
 
-        <section class="team" id="team">
-          <div class="section-heading">
-            <p class="eyebrow">Student core</p>
-            <h2>Alumni Cell Taskforce</h2>
+        <section class="section team" id="team">
+          <div class="section-intro center">
+            <p class="eyebrow">Students' taskforce</p>
+            <h2>JUIT Alumni Cell Core</h2>
+            <p class="muted">
+              An energetic student-led council mirroring the collaborative ethos of JUIT TIEDC.
+            </p>
           </div>
-          <div class="grid grid-four" id="student-team"></div>
+          <div class="team-grid" id="student-team"></div>
         </section>
       </main>
 
       <footer class="footer">
-        <p>© <span id="year"></span> JUIT Alumni Cell • Crafted for Alumni Meet 2026</p>
-        <a href="mailto:alumni.cell@juit.ac.in">alumni.cell@juit.ac.in</a>
+        <div>
+          <p class="eyebrow">Stay connected</p>
+          <p>alumni.cell@juit.ac.in</p>
+          <p>© <span id="year"></span> JUIT Alumni Cell</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#initiatives">Highlights</a>
+          <a href="#leaders">Leadership</a>
+          <a href="#team">Team</a>
+        </div>
       </footer>
     </div>
 
