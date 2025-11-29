@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUIT Alumni Cell - Alumni Meet 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1a3a52;
+            --secondary-purple: #6B5B95;
+            --accent-gold: #ffc107;
+            --dark-bg: #000000;
+            --darker-bg: #0a0a0a;
+            --light-text: #ffffff;
+            --gray-text: #a0a0a0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3rem;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, var(--accent-gold), #fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            line-height: 1.2;
+        }
+
+        .logo-subtitle {
+            font-size: 0.75rem;
+            color: var(--gray-text);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            margin-top: 0.3rem;
+        }
+
+        .logo-wrapper:hover .logo {
+            transform: scale(1.02);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--gray-text);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            position: relative;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-gold));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .mobile-menu span {
+            width: 28px;
+            height: 2px;
+            background: var(--light-text);
+            transition: 0.3s;
+        }
+
+        
+            /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+            background: radial-gradient(ellipse at center, rgba(26, 58, 82, 0.15) 0%, transparent 70%),
+                        radial-gradient(ellipse at 80% 50%, rgba(107, 91, 149, 0.15) 0%, transparent 50%);
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100px 100px;
+            opacity: 0.3;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(100px, 100px);
+            }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(26, 58, 82, 0.3), transparent);
+            border-radius: 50%;
+            top: -250px;
+            left: -250px;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(107, 91, 149, 0.3), transparent);
+            border-radius: 50%;
+            bottom: -200px;
+            right: -200px;
+            animation: float 12s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(50px, 50px) scale(1.1);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 1100px;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 6rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% auto;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% center;
+            }
+            50% {
+                background-position: 100% center;
+            }
+        }
+
+        .hero-description {
+            font-size: 1.4rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        /* Countdown */
+        .countdown-container {
+            background: rgba(255, 193, 7, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid rgba(255, 193, 7, 0.3);
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .countdown-label-text {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+            font-weight: 500;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .countdown-item {
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-label {
+            font-size: 0.85rem;
+            color: #e0e0e0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+            color: var(--light-text);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(26, 58, 82, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light-text);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-gold);
+            background: rgba(255, 193, 7, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 8rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-eyebrow {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.8s ease 0.2s both;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            animation: fadeIn 0.8s ease 0.4s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--gray-text);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, rgba(26, 58, 82, 0.3), rgba(107, 91, 149, 0.3), rgba(255, 193, 7, 0.2));
+            background-clip: padding-box;
+            animation: imageGlow 3s ease-in-out infinite;
+            transition: all 0.5s ease;
+        }
+
+        @keyframes imageGlow {
+            0%, 100% {
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                            0 0 30px rgba(26, 58, 82, 0.3);
+            }
+            50% {
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                            0 0 50px rgba(255, 193, 7, 0.4),
+                            0 0 80px rgba(107, 91, 149, 0.3);
+            }
+        }
+
+        .about-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 58, 82, 0.4), rgba(107, 91, 149, 0.4), rgba(255, 193, 7, 0.2));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background: linear-gradient(135deg, rgba(26, 58, 82, 0.4), rgba(107, 91, 149, 0.4), rgba(255, 193, 7, 0.2));
+            }
+            50% {
+                background: linear-gradient(135deg, rgba(107, 91, 149, 0.4), rgba(255, 193, 7, 0.3), rgba(26, 58, 82, 0.3));
+            }
+        }
+
+        .about-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--secondary-purple), var(--accent-gold), var(--primary-blue));
+            background-size: 300% 300%;
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: borderRotate 3s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .about-image-wrapper:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6),
+                        0 0 60px rgba(255, 193, 7, 0.5),
+                        0 0 100px rgba(107, 91, 149, 0.4);
+        }
+
+        .about-image-wrapper:hover::before {
+            opacity: 0.6;
+        }
+
+        .about-image-wrapper:hover::after {
+            opacity: 1;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.8s ease;
+            filter: brightness(0.9) contrast(1.1) saturate(1.2) sepia(0.1);
+            animation: imageFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes imageFloat {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-5px) scale(1.02);
+            }
+        }
+
+        .about-image-wrapper:hover .about-image {
+            transform: scale(1.15) translateY(-5px);
+            filter: brightness(1.1) contrast(1.2) saturate(1.4) sepia(0);
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 193, 7, 0.05);
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--gray-text);
+            margin: 0;
+        }
+
+        /* Events Grid */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 58, 82, 0.2), rgba(107, 91, 149, 0.2));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .event-card:hover::before {
+            opacity: 1;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 60px rgba(26, 58, 82, 0.4);
+        }
+
+        .event-image-wrapper {
+            overflow: hidden;
+            height: 300px;
+            position: relative;
+        }
+
+        .event-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 58, 82, 0.4), rgba(107, 91, 149, 0.3));
+            opacity: 0.6;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+
+        .event-card:hover .event-image-wrapper::after {
+            opacity: 0.3;
+        }
+
+        .event-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+            filter: brightness(0.85) contrast(1.1) saturate(1.2);
+        }
+
+        .event-card:hover .event-image {
+            transform: scale(1.1);
+            filter: brightness(1) contrast(1.15) saturate(1.3);
+        }
+
+        /* Color Grading for Specific Events */
+        .event-card.alumni-gathering .event-image-wrapper::after {
+            background: linear-gradient(135deg, rgba(26, 58, 82, 0.5), rgba(255, 193, 7, 0.2));
+        }
+
+        .event-card.alumni-gathering .event-image {
+            filter: brightness(0.9) contrast(1.15) saturate(1.3) sepia(0.1);
+        }
+
+        .event-card.awards-gala .event-image-wrapper::after {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.4), rgba(107, 91, 149, 0.4));
+        }
+
+        .event-card.awards-gala .event-image {
+            filter: brightness(0.9) contrast(1.2) saturate(1.4) hue-rotate(-5deg);
+        }
+
+        .event-card.cultural .event-image-wrapper::after {
+            background: linear-gradient(135deg, rgba(107, 91, 149, 0.5), rgba(255, 193, 7, 0.3));
+        }
+
+        .event-card.cultural .event-image {
+            filter: brightness(0.85) contrast(1.1) saturate(1.5) hue-rotate(10deg);
+        }
+
+        .event-card.campus-tour .event-image-wrapper::after {
+            background: linear-gradient(135deg, rgba(26, 58, 82, 0.4), rgba(107, 91, 149, 0.3));
+        }
+
+        .event-card.campus-tour .event-image {
+            filter: brightness(0.9) contrast(1.15) saturate(1.25);
+        }
+
+        .event-card.sports .event-image-wrapper::after {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.3), rgba(26, 58, 82, 0.4));
+        }
+
+        .event-card.sports .event-image {
+            filter: brightness(0.9) contrast(1.2) saturate(1.3) hue-rotate(-10deg);
+        }
+
+        .event-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .event-date {
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .event-venue {
+            color: var(--gray-text);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .event-description {
+            color: var(--gray-text);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 5rem auto;
+            max-width: 1400px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 2rem 1.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+            color: var(--accent-gold);
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .team-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-role {
+            font-size: 0.95rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-text {
+            font-size: 0.95rem;
+            color: var(--gray-text);
+            margin-bottom: 1.25rem;
+        }
+
+        .team-links {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .team-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            font-size: 0.85rem;
+            color: var(--light-text);
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .team-links a:hover {
+            border-color: var(--accent-gold);
+            background: rgba(255, 193, 7, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .team-links i {
+            font-size: 1rem;
+            color: var(--accent-gold);
+        }
+
+        @media (max-width: 900px) {
+            .team-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Social Section */
+        .social-section {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 5rem auto;
+            max-width: 1400px;
+        }
+
+        .social-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .social-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(26, 58, 82, 0.3), rgba(107, 91, 149, 0.3));
+            border-radius: 50%;
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            transition: all 0.3s;
+            border: 2px solid rgba(255, 193, 7, 0.3);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+            color: var(--accent-gold);
+            transform: scale(1.15) rotate(5deg);
+            border-color: var(--accent-gold);
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        .contact-details p {
+            color: var(--gray-text);
+        }
+
+        .contact-details a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--light-text);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker-bg);
+            padding: 4rem 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+
+        .footer-content p {
+            color: var(--gray-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-content a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        .footer-content a:hover {
+            color: var(--light-text);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(26, 58, 82, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .logo-subtitle {
+                font-size: 0.65rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.98);
+                width: 80%;
+                height: calc(100vh - 70px);
+                padding: 3rem 2rem;
+                transition: right 0.4s ease;
+                gap: 2rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                padding: 2rem;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .countdown {
+                gap: 1rem;
+            }
+
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+
+            .countdown-item {
+                min-width: 60px;
+            }
+
+            .social-links {
+                gap: 1rem;
+            }
+
+            .social-link {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <div class="logo">JUIT Alumni</div>
+                <div class="logo-subtitle">Cell</div>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#social">Connect</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">JUIT Alumni Meet 2026</p>
+            <h1>Reconnect Inspire.</h1>
+            <p class="hero-description">
+                Join thousands of alumni to celebrate our legacy, network with fellow graduates, and inspire the next generation of leaders at your own Home. Jaypee University of Information Technology.
+            </p>
+            <p class="hero-description">
+                January 24, 2026 | 📍 College Campus, Waknaghat (Himachal Pradesh)
+            
+            <div class="countdown-container">
+                <p class="countdown-label-text">Event Starts In</p>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">0</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">0</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">0</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">0</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Register Now</a>
+                <a href="#events" class="btn-secondary">View Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <div class="section-header">
+            <p class="section-eyebrow">Team Behind JUIT Alumni Cell</p>
+            <h2 class="section-title">Meet the Core Team</h2>
+            <p class="section-description">
+                The dedicated faculty coordinator and student leaders working behind the scenes to make the JUIT Alumni Cell thrive.
+            </p>
+        </div>
+        <div class="team-section">
+            <div class="team-grid">
+                <article class="team-card">
+                    <div class="team-avatar">SB</div>
+                    <h3 class="team-name">Dr. Saurabh Bansal</h3>
+                    <p class="team-role">Faculty Coordinator</p>
+                    <p class="team-text">
+                        Guiding and mentoring the JUIT Alumni Cell, bridging the gap between the institute and its global alumni network.
+                    </p>
+                    <div class="team-links">
+                        <a href="https://www.linkedin.com/in/dr-saurabh-bansal/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="team-card">
+                    <div class="team-avatar">AK</div>
+                    <h3 class="team-name">Arin Kumar</h3>
+                    <p class="team-role">President, JUIT Alumni Cell</p>
+                    <p class="team-text">
+                        Leading student initiatives and alumni engagement to strengthen the JUIT community on and off campus.
+                    </p>
+                    <div class="team-links">
+                        <a href="https://www.linkedin.com/in/arinkumar6699/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="team-card">
+                    <div class="team-avatar">AS</div>
+                    <h3 class="team-name">Anwesh Sinha</h3>
+                    <p class="team-role">Secretary, JUIT Alumni Cell</p>
+                    <p class="team-text">
+                        Coordinating communications, events, and operations to ensure a seamless alumni experience.
+                    </p>
+                    <div class="team-links">
+                        <a href="https://www.linkedin.com/in/anwesh-sinha1/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <p class="section-eyebrow">Welcome Back Home</p>
+            <h2 class="section-title">About Alumni Meet 2026</h2>
+            <p class="section-description">
+                A celebration of JUIT legacy and future possibilities
+            </p>
+        </div>
+        <div class="about-grid">
+            <div class="about-content">
+                <h3>Bringing Together The JUIT Family</h3>
+                <p>
+                    The JUIT Alumni Meet 2026 is a momentous occasion where alumni from different batches, branches, and career paths come together to celebrate their shared heritage and achievements.
+                </p>
+                <p>
+                    This grand reunion will feature networking sessions, award ceremonies, guest lectures by accomplished alumni, and various recreational activities to strengthen the bonds of the JUIT community.
+                </p>
+                <p>
+                    Whether you graduated in 2008 or 2025, this is your opportunity to reconnect with old friends, mentor current students, and explore opportunities for collaboration and growth.
+                </p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎓</div>
+                        <h4>Networking</h4>
+                        <p>Connect with 500+ alumni</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🏆</div>
+                        <h4>Celebrations</h4>
+                        <p>Award ceremonies & honors</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💼</div>
+                        <h4>Mentorship</h4>
+                        <p>Guide the next generation</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🌟</div>
+                        <h4>Opportunities</h4>
+                        <p>Collaboration & growth</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1400&h=900&fit=crop" alt="JUIT Alumni Gathering" class="about-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+        <div class="section-header">
+            <p class="section-eyebrow">What to Expect</p>
+            <h2 class="section-title">Events & Activities</h2>
+            <p class="section-description">
+                Three days of celebration, learning, and connections
+            </p>
+        </div>
+        <div class="events-grid">
+            <div class="event-card alumni-gathering">
+                <div class="event-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&h=800&fit=crop" alt="Opening Ceremony" class="event-image">
+                </div>
+                <div class="event-content">
+                    <p class="event-date">📅 March 15, 2026 | 10:00 AM</p>
+                    <p class="event-venue">📍 JUIT Auditorium</p>
+                    <h3 class="event-title">Opening Ceremony</h3>
+                    <p class="event-description">Kick off the alumni meet with an inspiring opening ceremony featuring speeches from distinguished alumni and university leadership. Welcome address and keynote on JUIT's journey and vision.</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop" alt="Networking Sessions" class="event-image">
+                </div>
+                <div class="event-content">
+                    <p class="event-date">📅 March 15, 2026 | 2:00 PM</p>
+                    <p class="event-venue">📍 JUIT Convention Center</p>
+                    <h3 class="event-title">Networking Sessions</h3>
+                    <p class="event-description">Interactive networking sessions organized by branch and batch. Connect with professionals from diverse industries including IT, finance, startups, and academia. Speed networking format for maximum connections.</p>
+                </div>
+            </div>
+
+            <div class="event-card awards-gala">
+                <div class="event-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&h=800&fit=crop" alt="Awards & Gala Dinner" class="event-image">
+                </div>
+                <div class="event-content">
+                    <p class="event-date">📅 March 15, 2026 | 6:00 PM</p>
+                    <p class="event-venue">📍 Banquet Hall</p>
+                    <h3 class="event-title">Awards & Gala Dinner</h3>
+                    <p class="event-description">Recognition of distinguished alumni achievers in various fields. Achievement Awards, Entrepreneur Award, Social Impact Award, and Young Achiever Award. Followed by an elegant gala dinner with entertainment.</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=500&fit=crop" alt="Mentorship Roundtable" class="event-image">
+                </div>
+                <div class="event-content">
+                    <p class="event-date">📅 March 16, 2026 | 9:30 AM</p>
+                    <p class="event-venue">📍 JUIT Campus</p>
+                    <h3 class="event-title">Mentorship Roundtables</h3>
+                    <p class="event-description">Industry leaders and successful entrepreneurs host interactive roundtable discussions on career development, entrepreneurship, and emerging opportunities. One-on-one mentoring sessions with senior alumni.</p>
+                </div>
+            </div>
+
+            <div class="event-card campus-tour">
+                <div class="event-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=1200&h=800&fit=crop" alt="Campus Tours" class="event-image">
+                </div>
+                <div class="event-content">
+                    <p class="event-date">📅 March 16, 2026 | 11:00 AM</p>
+                    <p class="event-venue">📍 Campus Tour Starting Point</p>
+                    <h3 class="event-title">Campus Tours & Exhibitions</h3>
+                    <p class="event-description">Guided tours of the upgraded campus facilities. Visit alumni exhibition showcasing notable alumni achievements, startups, and success stories. Interact with current students and understand JUIT's growth.</p>
+                </div>
+            </div>
+
+            <div class="event-card cultural">
+                <div class="event-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=800&fit=crop" alt="Cultural Program" class="event-image">
+                </div>
+                <div class="event-content">
+                    <p class="event-date">📅 March 16, 2026 | 5:00 PM</p>
+                    <p class="event-venue">📍 Open Air Amphitheater</p>
+                    <h3 class="event-title">Cultural Program & Closing</h3>
+                    <p class="event-description">Entertainment and cultural performances by alumni and students. Celebrating the talent and creativity of the JUIT community. Closing remarks and announcement for the next alumni meet.</p>
+                </div>
+            </div>
+
+            <div class="event-card sports">
+                <div class="event-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=800&fit=crop" alt="Sports & Recreation" class="event-image">
+                </div>
+                <div class="event-content">
+                    <p class="event-date">📅 March 15-16, 2026 | Anytime</p>
+                    <p class="event-venue">📍 Sports Complex</p>
+                    <h3 class="event-title">Sports & Recreation Activities</h3>
+                    <p class="event-description">Recreational activities and friendly sports competitions including cricket, badminton, and indoor games. Cricket and badminton tournaments with exciting prizes. Relive campus memories through friendly competitions.</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop" alt="Entrepreneurship Forum" class="event-image">
+                </div>
+                <div class="event-content">
+                    <p class="event-date">📅 March 16, 2026 | 2:00 PM</p>
+                    <p class="event-venue">📍 Business Hall</p>
+                    <h3 class="event-title">Entrepreneurship Forum</h3>
+                    <p class="event-description">Panel discussion featuring successful JUIT alumni entrepreneurs. Discussion on startup journey, challenges, and lessons learned. Opportunities for current students and alumni to pitch ideas and seek funding connections.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+     
+    <!-- Social Media Section -->
+    <section id="social">
+        <div class="social-section">
+            <h2 class="social-title">Stay Connected</h2>
+            <p class="social-subtitle">Follow JUIT Alumni Cell for the latest updates and event coverage</p>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/JUITAlumniCell/" class="social-link" title="Facebook" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/juit_alumni_cell/" class="social-link" title="Instagram" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/juit-alumni" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.youtube.com/c/juitalumni" class="social-link" title="YouTube" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://twitter.com/juitalumni" class="social-link" title="Twitter" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <p class="section-eyebrow">Get In Touch</p>
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-description">
+                Questions? We're here to help
+            </p>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Event Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📅</div>
+                        <div class="contact-details">
+                            <h4>Date</h4>
+                            <p>January 24, 2026 (Saturday)</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Venue</h4>
+                            <p>Jaypee University of Information Technology<br>Waknaghat, Solan, Himachal Pradesh 173234</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:alumni@juit.ac.in">alumni@juit.ac.in</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+91-1792-239642 | +91-1792-239643</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h3>Quick Links</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-details">
+                            <h4>Alumni Portal</h4>
+                            <p><a href="https://www.juit.ac.in/alumni" target="_blank">www.juit.ac.in/alumni</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📋</div>
+                        <div class="contact-details">
+                            <h4>Registration</h4>
+                            <p><a href="#" target="_blank">Register for the Event</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">👥</div>
+                        <div class="contact-details">
+                            <h4>Volunteer</h4>
+                            <p><a href="mailto:alumni@juit.ac.in">Become a Volunteer</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🎁</div>
+                        <div class="contact-details">
+                            <h4>Sponsorship</h4>
+                            <p><a href="mailto:alumni@juit.ac.in">Sponsor the Event</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 JUIT Alumni Cell. All rights reserved.</p>
+            <p>Jaypee University of Information Technology | Waknaghat, Solan, Himachal Pradesh 173234</p>
+            <p>Email: <a href="mailto:alumni@juit.ac.in">alumni@juit.ac.in</a> | Phone: +91-1792-239642</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">⬆</div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll to Top Button
+        const scrollTop = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('2026-03-15T10:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = eventDate - now;
+
+            if (timeLeft > 0) {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
